@@ -21,28 +21,30 @@
       </tbody>
     </table>
   </div>
-  <div class="main"> 
-    <!--循环开始-->
-    <div>
-      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <!--登录开始-->
+  <div class="main">
+    <form name="" id="" action="" method="post">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" class="formcontent">
         <tbody>
           <tr>
-            <td class="thumbnail"><a href="product-list.html"><img src="img/event-figure.jpg" alt="" border="0" /></a></td>
-            <td><a href="product-list.html"><img src="img/event-logo.jpg" alt="" border="0" /></a><br />
-              剩余时间：<br />
-              <em class="number">2</em class="number">天<em class="number">12</em>小时<em class="number">23</em>分</td>
+            <td><label for="username">会员名(邮箱)</label>
+              <br />
+              <input type="text" name="username" id="username" class="txt" /></td>
           </tr>
           <tr>
-            <td colspan="2"><p class="detail">文字</p></td>
+            <td><label for="userpassword">密码</label>
+              <br />
+              <input type="password" name="userpassword" id="userpassword" class="txt" /></td>
+          </tr>
+          <tr>
+            <td><input type="submit" name="loginbtn" id="loginbtn" value="登录" class="btn" /></td>
           </tr>
         </tbody>
       </table>
-    </div>
-    <div class="info">
-      <p>2.4折 共45款产品 31款已售完</p>
-    </div>
-    <!--循环结束--> 
+    </form>
+    <div class="main"><a href="register.html">注册</a>|<a href="forgetpwd.html">忘记密码</a></div>
   </div>
+  <!--登录结束-->
   <div class="ft">
     <p><a href="index.html">返回首页</a>|<a href="login.html">登录</a>|<a href="register.html">注册</a></p>
     <p>会员服务热线：4006-646-698</p>

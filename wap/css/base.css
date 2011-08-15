@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* CSS Document */
+body,div,p,h1,h2,h3,em,span,a,td,form,input,select,textarea { margin:0; padding:0; color:#333; font-size:14px; font-style:normal; line-height:19px;}
+h1,h2,h3,em,strong { font-weight:bold;}
+a { padding:0 3px; color:#3D64EF; text-decoration:none;}
+a img { border:medium none;}
+.wapall,.hd,.main,.ft {}
+/*== 头部 ==*/
+.hd { padding:8px; background:#2b292d;}
+	.logo { width:150px;}
+	.session { text-align:right;}
+	.session,.hd a { color:#fff;}
+/*== 主要内容 ==*/	
+.main { padding:8px;}
+/*== 底部 ==*/
+.ft { padding:8px 0; background:#F0F0F0; border-top:1px solid #ccc; text-align:center;}
+.ft p { padding:2px 0;}
+/*== 个人登录后头部 ==*/
+.personal_hd { padding:4px 0; background:#f0f0f0; border-bottom:1px solid #ccc; text-align:center;}
+/*== 面包屑导航 ==*/
+.breadcrumb_nav { padding:4px 8px; background:#f0f0f0; border-top:1px solid #ccc; border-bottom:1px solid #ccc;}
+	.breadcrumb_nav a,.breadcrumb_nav span { padding:0 2px;}
+/*== 黑色分隔条 ==*/
+.info { padding:0 8px; margin:10px 0; height:34px; background:url(../img/bg-line.gif) 0 0 repeat-x; color:#fff;}
+	.info p,.info a { line-height:34px; color:#fff;}
+/*== 其他设定 ==*/
+.thumbnail { width:30%;}
+.title { font-weight:bold;}
+.nowprice,.number,a.number { padding:0 4px; color:#F00;}
+.oldprice { color:#000; text-decoration:line-through;}
+.detail { padding:4px;}	
+.size {}
+	.size span { margin:0 5px; padding:2px 4px; border:1px solid #ccc;}
+.btn { padding:4px 6px; text-align:center; background:#F00; border:0; color:#fff; font-weight:bold; cursor:pointer;}
+.link { padding:4px 6px; text-align:center; border:0; color:#000; font-weight:bold; text-decoration:underline;}
+.btnarea { padding:0 4px;}
+.content { padding:10px 8px; border-top:1px solid #000;}
+hr { height:0; margin:10px 0; border:1px solid #000; color:#000;}
+.tabs { background:#f0f0f0;}
+	.tabs td { padding:4px 0; text-align:center;}
+	.tabs strong { padding:2px 4px; background:#F00; color:#fff;}
+.main h2 { margin:5px 0;}
+.txt { width:160px; border:2px solid #ccc;}
+.formcontent td { padding:4px 0;}
+	
