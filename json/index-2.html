@@ -51,6 +51,9 @@
                     <li><a href="#" class="brand-level-3">brand-level-3</a></li>
 				</ol>
 			</nav>
+			<div class="sortbar">
+				<a href="####" class="sort_price_height">sort_price_height</a>
+			</div>
             <div class="searchbar">
             	<div class="formbox">
                 	<!--<p class="quicklink">种类:<a href="####">外套</a><a href="####">裙子</a><a href="####">包</a><a href="####">鞋子</a></p>-->
@@ -97,6 +100,10 @@
 			var info = data.products;
 			for(var i = 0;retCnt >0 && i < retCnt; i++)
 				{ 
+				if (sortRule =="price"){
+					data.sort(function(a,b){return a[0]-b[0]});
+				}
+				
 				items.push('<li id="product_' + i + '" class="p-'+  info[i].price  +' d-'+ info[i].discount +' b-'+ info[i].brand +'">' + info[i].html + '</li>');
 				allCount = i;
 				};
@@ -117,14 +124,20 @@
 	}
 	
 	$(".type a").click(function(){
-		var tags = $(this).attr("title");
+		//var tags = $(this).attr("title");
 
-		testClick({url:'sales-st0.json', tag:tags});//开始加载数据 list.json是数据
+		testClick({url:'newtemplate.json', tag:'price'});//开始加载数据 list.json是数据
 		return false;
 	});	
 	
 	testJson({url:'newtemplate.json',tag:'all'});
 	
+	$(".sort_price_height").click(function(){
+		//var tags = $(this).attr("title");
+
+		testClick({url:'newtemplate.json', tag:'price'});//开始加载数据 list.json是数据
+		return false;
+	});
 	
 	
 </script>
