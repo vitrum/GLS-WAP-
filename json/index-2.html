@@ -101,6 +101,7 @@
 			for(var i = 0;retCnt >0 && i < retCnt; i++)
 				{ 
 				if (tag =="price"){
+					alert("click sort order");
 					data.sort(function(a,b){return a[0]-b[0]});
 				}
 				
@@ -134,7 +135,7 @@
 	
 	$(".sort_price_height").click(function(){
 		//var tags = $(this).attr("title");
-		alert("click sort order");
+		//alert("click sort order");
 		testClick({url:'newtemplate.json', tag:'price'});//开始加载数据 list.json是数据
 		return false;
 	});
