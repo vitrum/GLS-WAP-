@@ -80,16 +80,16 @@
 	<script>window.jQuery || document.write("<script src='js/jquery.1.6.1.min.js'>\x3C/script>")</script>
 <script>
 
-	var times = [];
-	
-	
-	
-	function testJson(obj,sortRule) { 
+	var times = []; //time track
+
+	function testJson(obj) { 
  
 		var url = obj.url;//+"?random="+Math.random();
 		var tag = obj.tag;
-		var sortRule = sortRule;
+		//var sortRule = sortRule;
 		var allCount = 0;
+		
+		alert("tag:"+tag);
 		
 		var jqxhr = $.getJSON(url, function(data) {})
 		.error(function(data) { alert("error"); })
