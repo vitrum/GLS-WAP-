@@ -334,10 +334,10 @@ ol.commentlist li.thread-odd {}
 .category .article:first-of-type .entry-shoot a { width: 625px; height: 210px; display: block; float: left;}
 .category .article:first-of-type .entry-content .entry-shoot-small { display: none;}
 
-
+#loading { width:100%; height:100%; position:absolute; top:0; left:0; display:block; background:#666; opacity:0.8; z-index:999}
 /*=====
 salespabebox
-======*/
+======
 .salesbrand .brandinfo { width:950px; height:300px; padding:30px 0 0 10px}
 .salesbrand .brandinfo img { float:left;}
 	.salesbrand .brandinfo .infobox { width:270px; height:270px; padding:15px; float:left; background:url(../images/common/bg-seale-brandinfo.gif) no-repeat; overflow:hidden;}
@@ -349,7 +349,7 @@ salespabebox
 	.salesbrand .brandinfo .word { float:left; clear:left; line-height:32px; width:270px; text-align:center; margin-bottom:20px}
 	
 	.salesbrand .brandinfo .showbox { float:left; width:640px; height:300px; overflow:hidden;}
-		.salesbrand .brandinfo .showbox li {width:640px; height:300px; overflow:hidden;}
+		.salesbrand .brandinfo .showbox li {width:640px; height:100px; overflow:hidden;}
 .salesbrand .searchbar {  width:960px; height:34px; clear:both; }
 .salesbrand .searchbar .formbox { padding:2px 0 0 16px; height:auto;}
 .salesbrand .searchbar form { float:left; width:280px;}
@@ -357,13 +357,12 @@ salespabebox
 .salesbrand .quicklink a { color:#000000; text-decoration:underline; font-weight:bold; padding: 4px 4px 0 ;letter-spacing:0}
 .salesbrand .salestime { float:left; width:200px; padding:0; color:#ff0085; font-weight:bold;}
 .productlist { width:960px; height:auto; padding-top:20px}
-.productlist ul { clear:left; float:left;width:960px; margin-bottom:30px}
-.productlist li { width:300px; height:495px; padding:0 10px 20px 10px; float:left; position:relative}
-.productlist .hover { width:300px; height:495px; position:absolute; left:10px; display:none;}
+.productlist ul.list { clear:left; float:left;width:960px; margin-bottom:30px}
+.productlist .list li { width:300px; height:105px; padding:0 10px 20px 10px; float:left; position:relative}
 
 	.productlist .list li { background:#fff; position:relative; z-index:5}
-		.productlist .list dt { width:300px; height:402px;}
-		.productlist .list dl {  z-index:10; position:absolute; width:300px; left:10px; top:0; height:495px; background:#ccc}
+		.productlist .list dt { width:300px; height:12px;}
+		.productlist .list dl {  z-index:10; position:absolute; width:300px; left:10px; top:0; height:85px; background:#ccc}
 			.productlist .list .name { width:300px; height:28px; text-align:center; line-height:28px; letter-spacing:0.2em; float:left; font-size:13px;}
 
 			.productlist .list .glsprice ,.productlist .list .marketprice { width:132px; text-align:center;display:inline; float:left; height:22px; padding-left:12px}
@@ -391,5 +390,139 @@ salespabebox
 		.productlist .list .active .link a { background-position: 0 -25px; color:#F00;}
 		.productlist .list .hover { width:310px; left:0; top:0; background:url(../images/common/bg-sales-list-hover.gif) 10px 0 no-repeat; cursor:pointer; z-index:1}
 		.productlist .list .loading { width:298px; height:398px; border:1px solid #ccc; display:block; text-align:center; line-height:350px; background:url(../images/common/loading.gif) center center no-repeat; text-indent:-1000em;}
+*/
+/*=====
+salespabebox
+======*/
+.eventclosedinfobox {}
+.eventclosedinfobox .info { width:960px; margin:0 auto; float:left; clear:left; text-indent:-1000em;}
+.eventclosedinfobox .info01 { height:326px; background:url(../images/common/sp-event-closed01.gif) no-repeat; overflow:hidden;}
+.eventclosedinfobox a.info02 { float:left; height:110px; background:url(../images/common/sp-event-closed02.gif) no-repeat; overflow:hidden;}
+.eventclosedinfobox .info03 { height:410px; background:url(../images/common/sp-event-closed03.gif) no-repeat; overflow:hidden;}
+.salesbrand .brandinfo { width:950px; height:300px; padding:30px 0 0 10px}
+.salesbrand .brandinfo img { float:left;}
+	.salesbrand .brandinfo .infobox { width:270px; height:270px; padding:15px; float:left; background:url(http://media2.glamour-sales.com.cn/skin/frontend/enterprise/default/images/common/bg-seale-brandinfo.gif) no-repeat; overflow:hidden;}
+	.salesbrand .brandinfo .infobox .btn_story { margin-right:13px;}
+	.salesbrand .brandinfo .infobox .btn_video{ margin-right:0px;}
+	.salesbrand .brandinfo .time { width:300px; padding:2px 10px 0 0;  line-height:30px; height:40px; float:left;}
+		.salesbrand .brandinfo .time div { width:auto; display:inline; color:#111; font-size:14px;font-weight:normal;}
+		.salesbrand .brandinfo .time span { font-size:24px; color:#F00; font-weight:bold;}
+	.salesbrand .brandinfo .word { float:left; clear:left; line-height:32px; width:270px; text-align:center; margin-bottom:20px}
 
+	.salesbrand .brandinfo .showbox { float:left; width:640px; height:300px; overflow:hidden;}
+		.salesbrand .brandinfo .showbox li {width:640px; height:300px; overflow:hidden;}
+.salesbrand .searchbar {  width:960px; height:34px; clear:both; }
+.salesbrand .searchbar .formbox { padding:2px 0 0 16px; height:auto;}
+.salesbrand .searchbar form { float:left; width:280px;}
+.salesbrand .quicklink { width:250px; float:left; padding: 8px 0 0 53px; color:#666666; letter-spacing:0.4em;}
+.salesbrand .quicklink a { color:#000000; text-decoration:underline; font-weight:bold; padding: 4px 4px 0 ;letter-spacing:0}
+.salesbrand .salestime { float:left; width:200px; padding:0; color:#ff0085; font-weight:bold;}
+.productlist { width:950px; height:auto; }
+.productlist ul { clear:left; float:left;width:960px; /*margin-bottom:30px*/}
+.productlist .list li { width:300px; height:495px; padding:0 10px 20px 10px; float:left; position:relative}
+.productlist .hover { width:300px; height:495px; position:absolute; left:10px; display:none;}
 
+	.productlist .list li { background:url(http://media2.glamour-sales.com.cn/skin/frontend/enterprise/default/images/common/bg-sales-list.gif) 10px 0 no-repeat; position:relative; z-index:5}
+		.productlist .list dl {  z-index:10; position:absolute; width:300px; left:10px; top:0; height:495px;}
+			.productlist .list .name { width:300px; height:28px; text-align:center; line-height:28px; letter-spacing:0.08em; float:left; font-size:13px;}
+
+			.productlist .list .glsprice ,.productlist .list .marketprice { width:132px; text-align:center;display:inline; float:left; height:22px; padding-left:12px}
+			.productlist .list .glsprice p { width:132px; padding:2px 0; border:1px solid #ccc;}
+			.productlist .list .marketprice p { width:132px; padding:2px 0; border:1px solid #ccc;}
+			.productlist .list .marketprice .mp_nomber { text-decoration:line-through;}
+			.productlist .list .link { width:300px; height:32px; float:left}
+
+		.productlist .list .active .name { color:#ccc }
+		.productlist .list .active .glsprice p {border:1px solid #ff0000; background:#F00; color:#FFF; font-weight:bold; }
+		.productlist .list .active .marketprice  p{ color:#ccc}
+
+		.productlist .list .fav  ,.productlist .list .inventory { position:absolute; z-index:20; top:17px; right:13px;   text-indent:-1000em;}
+		.productlist .list .fav  { background:url(../images/common/sp-sales-fav.png) no-repeat;width:24px; height:84px;}
+			.productlist .list .fav2  { background:url(../images/common/sp-sales-fav-gry.png) no-repeat;width:24px; height:84px;}
+			*html .productlist .list .fav  { background-image: none;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/skin/frontend/enterprise/default/images/common/sp-sales-fav.png", sizingMethod="scale");}
+			*html .productlist .list .fav2  { background-image: none;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/skin/frontend/enterprise/default/images/common/sp-sales-fav-gry.png", sizingMethod="scale");}
+		.productlist .list .inventory { background:url(../images/common/sp-sales-inventory.png)  no-repeat; width:32px; height:55px;}
+			*html .productlist .list .inventory  { background-image: none;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/skin/frontend/enterprise/default/images/common/sp-sales-inventory.png", sizingMethod="scale");}
+		.productlist .list .inventory2 { background:url(../images/common/sp-sales-inventory-gry.png)  no-repeat; width:32px; height:77px;}
+			*html .productlist .list .inventory2  { background-image: none;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/skin/frontend/enterprise/default/images/common/sp-sales-inventory-gry.png", sizingMethod="scale");}
+		.productlist .list .link a	{ background:url(../images/common/sp-sales-link.png) no-repeat; width:132px; height:18px; line-height:14px; color:#cfcfcf; text-align:center; float:left; margin:8px 0 0 85px; font-size:14px; padding:2px; letter-spacing:0.1em}
+			*html .productlist .list .link a {background:url(../images/common/sp-sales-link.gif) no-repeat;line-height:20px; }
+
+		.productlist .list .active .link a { background-position: 0 -25px; color:#F00;}
+		.productlist .list .hover { width:310px; left:0; top:0; background:url(http://media2.glamour-sales.com.cn/skin/frontend/enterprise/default/images/common/bg-sales-list-hover.gif) 10px 0 no-repeat; cursor:pointer; z-index:1}
+		.productlist .list .loading { width:298px; height:398px; border:1px solid #ccc; display:block; text-align:center; line-height:350px; background:url(http://media2.glamour-sales.com.cn/skin/frontend/enterprise/default/images/common/loading.gif) center center no-repeat; text-indent:-1000em;}
+
+.productlist {position:relative;}
+
+*html .salesbrand {position:relative;}
+*html .salesbrand .searchbar {position:absolute; top:332px;}
+*html .productlist .list {padding:40px 0 0 0 }
+*html .productlist .toolbar {position:relative;float:right;top:14px;}
+
+.productlist .toolbar { width:500px; position:absolute; top:-26px; right:0; z-index:100; zoom:1;}
+.productlist .toolbar .pager {margin:0; }
+.productlist .toolbar .pager li { height:20px; margin-left:4px;padding:0;}
+.productlist .toolbar .pager li a {padding:0 8px 2px;height:18px;line-height:18px;}
+
+.bottom-pager .toolbar{ position:relative; top:0px; right:0px;float:right;width:942px;margin-bottom:10px}
+
+/*.bottom-pager .toolbar .pager{background-color:#CCCCCC}*/
+.pager .pagersinfo {float:right;width:auto;width:auto;display:inline;line-height:22px;padding:0 10px;}
+.pager .pagersinfo .space{padding:0 10px; display:none}
+
+.productlist .top-pager .toolbar .pager li.number , .productlist .top-pager .toolbar .pager .pagersinfo { display:none;}
+.productlist .pager .arrows {
+border-bottom:6px dashed transparent;
+border-left:none;
+border-right:6px solid #999999;
+border-top:6px dashed transparent;
+height:0;left:5px;line-height:0;position:absolute;top:3px;width:0;
+}
+
+.productlist .pager .pages {padding-right:0;}
+.productlist .pager .arrows_right {border-left:6px solid #999999;border-right:none; left:53px;}
+.productlist .toolbar .pager li {display:inline-block;border: 1px solid #CCCCCC;}
+.productlist .toolbar .pager li.txt a { width:40px; position:relative; padding:0 20px  2px; }
+.productlist .toolbar .pager li.txt_left a { padding-right:6px}
+.productlist .toolbar .pager li.txt_right a {padding-left:6px}
+.productlist .toolbar .pager li.current {background:#CCCCCC; padding:4px 8px 0; height:16px;}
+.productlist .toolbar .pager li.active ,.productlist .toolbar .pager li.active a {background:red; color:#FFF;}
+.productlist .toolbar .pager li.active .arrows{ border-right:6px solid #FFF;}
+.productlist .toolbar .pager li.active .arrows_right { border-left:6px solid #FFF; border-right:none; }
+.productlist .top-pager .toolbar {top:-26px}
+*html .productlist .top-pager .toolbar {top:8px;}
+*html .productlist .toolbar .pager li.active .arrows_left {border:#FFF; overflow:hidden}
+*html .productlist .toolbar .pager li.active .arrows_right {border:#FFF; overflow:hidden}
+*html .productlist .toolbar .pager li a {padding-top:3px; display:inline-block}
+*html .productlist .toolbar .pager li.txt a {padding-top:3px;}
+*html .productlist .toolbar .pager li.current {padding-top:5px; display:inline-block}
+*html .productlist .pager .arrows { top:5px;}
+*+html .productlist .toolbar .pager li.txt { line-height:18px; }
+/*==20110519 new filter==*/
+.productfilterbox { width:950px; padding:20px 0 0 10px; position:relative;}
+
+.productfilterbox .filterbox { width:920px; background:#eeeeee; border:1px solid #CCCCCC; padding:12px 9px 20px; }
+.productfilterbox .filterbody { width:10%; display:table; float:left;}
+.productfilterbox .filterbody .currently {clear:left;}
+.productfilterbox .filterbody li { width:33%; display:table; float:left;}
+.productfilterbox .filterbody dt {line-height:20px;}
+.productfilterbox .filterbody .select {font-weight:bold; color:red; }
+.productfilterbox .filterbox .price { width:42%}
+.productfilterbox .filterbox .price li { width:46%; line-height:17px;}
+.productfilterbox .filterbox .product_type { width:36%}
+.productfilterbox .filterbox .product_type li{ width:30%;}
+
+.productfilterbox .filterswitcher { position:absolute; width:50px; right:0; top:2px;}
+.productfilterbox .filterswitcher a { color:red}
+.productfilterbox .filterswitcher a b {-moz-transition: -webkit-transform 0.2s ease-in 0s;-moz-transition: -webkit-transform 0.2s ease-in 0s;
+    border-color: red #FFF #FFF;
+    border-style: solid;
+    border-width: 4px;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    position: absolute;
+    right: 10px;
+    top: 4px;
+    width: 0;}
+.productfilterbox .filterswitcher a:hover b {    -moz-transform: rotate(180deg);    -moz-transform-origin: 50% 30%; }

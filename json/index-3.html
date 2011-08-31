@@ -61,6 +61,7 @@
                         <li><a href="#" class="brand" title="phyto">brand:phyto</a></li>
                         <li><a href="#" class="brand" title="lagostina">brand:lagostina</a></li>
                     </ol>
+                    <a href="#" class="" title="off">filter OFF</a>
                 </nav>
             	<ul class="list">
                 	<li><span class="loading">loading...</span></li>
@@ -80,86 +81,147 @@
 	<script>window.jQuery || document.write("<script src='js/jquery.1.6.1.min.js'>\x3C/script>")</script>
 <script>
 
-var times = []; //time track
-var loadingStr = "<li><span class=\"loading\">loading...</span></li>";
-var tebtimes = new Date();
-var hght = 0;//初始化滚动条总长
-var top = 0;//初始化滚动条的当前位置
-var firstShow = 21 ;
-	
-jQuery.fn.sort = function() {  
-    return this.pushStack( [].sort.apply( this, arguments ), []);  
-};  
-
-function sortPrice(a,b){  
-	if (a.price == b.price){
-		return 0;
-	}
-	return a.price> b.price ? 1 : -1;  
-};  
-function sortPriceDesc(a,b){  
- 	return sortPrice(a,b) * -1;  
-};
-
-function sortDiscount(a,b){  
-	if (a.discount == b.discount){
-		return 0;
-	}
-	return a.discount> b.discount ? 1 : -1;  
-};  
-function sortDiscountDesc(a,b){  
-	return sortDiscount(a,b) * -1;  
-};
-function showLoading(){  
-	$('<ul/>', {
-		'class': 'list',
-		html: loadingStr
-	}).replaceAll('.productlist .list');
-}; 
-
-
-function cando(){
-	if(top>parseInt(hght/3)*2)//判断滚动条当前位置是否超过总长的2/3，parseInt为取整函数
-	showmore();//如果是，调用show函数加载内容。
-}
-
-function showmore(){
-	hght = 0;//恢复滚动条总长，因为$("#mypage").scroll事件一触发，又会得到新值，不恢复的话可能会造成判断错误而再次加载……
-	top	 = 0;//原因同上。
-	$(".scrollinfo").html("add more!  <br />top:" + top + "<br /> height:" + hght);
-	if ( morePart != ""){
-		//do some thins
+	var times = []; //time track
+	var info = [];
+	var loadingStr = "<li><span class=\"loading\">loading...</span></li>";
+	var tebtimes = new Date();
+	var hght = 0;//初始化滚动条总长
+	var top = 0;//初始化滚动条的当前位置
+	var firstShow = 21 ;
 		
-		//check the filter and sorder
-		
-		
-		//$("#showmoreproduct").val(Number(morePart) +1);
-		showProductJson({url:'json.php'},{brand:'',rule:'Off',showmore:'1'});
+	jQuery.fn.sort = function() {  
+		return this.pushStack( [].sort.apply( this, arguments ), []);  
+	};  
+	
+	function sortPrice(a,b){  
+		if (a.price == b.price){
+			return 0;
+		}
+		return a.price> b.price ? 1 : -1;  
+	};  
+	function sortPriceDesc(a,b){  
+		return sortPrice(a,b) * -1;  
+	};
+	
+	function sortDiscount(a,b){  
+		if (a.discount == b.discount){
+			return 0;
+		}
+		return a.discount> b.discount ? 1 : -1;  
+	};  
+	function sortDiscountDesc(a,b){  
+		return sortDiscount(a,b) * -1;  
+	};
+	function showLoading(){  
+		$('<ul/>', {
+			'class': 'list',
+			html: loadingStr
+		}).replaceAll('.productlist .list');
+	}; 
+	
+	
+	function cando(){
+		if(top>parseInt(hght/3)*2)//判断滚动条当前位置是否超过总长的2/3，parseInt为取整函数
+		showmore();//如果是，调用show函数加载内容。
 	}
-}
-function showMorePart(a){  
-	var a = Number($("#showmoreproduct").val());
- 	return a;
-};
-function showProductJson(obj,filter) { 
-
-	var url = obj.url;//+"?random="+Math.random();
-	var tag = obj.tag;
-	var filterrule = filter.rule;
-	var filterKeyBrand = filter.brand;
-	var showMore = Number(filter.showmore);
-	var morePart = showMorePart();
 	
-	var allCount = 0;
+	function showmore(){
+		hght = 0;//恢复滚动条总长，因为$("#mypage").scroll事件一触发，又会得到新值，不恢复的话可能会造成判断错误而再次加载……
+		top	 = 0;//原因同上。
+		$(".scrollinfo").html("add more!  <br />top:" + top + "<br /> height:" + hght);
+		if ( morePart != ""){
+			//do some thins
+			
+			//check the filter and sorder
+			
+			
+			//$("#showmoreproduct").val(Number(morePart) +1);
+			showProductJson({url:'json.php'},{brand:'',rule:'Off',showmore:'1'});
+		}
+	}
+	function showMorePart(a){  
+		var a = Number($("#showmoreproduct").val());
+		return a;
+	};
+	function showProductJson(obj,filter) { 
 	
-	var jqxhr = $.getJSON(url, function(data) {})
-	.error(function(data) { //alert("error");
-	})
-	.success(function(data) { 
-		times.push(new Date().getTime());
-		var items = [];
-		var info = data.products;
-		// sort
+		var url = obj.url;//+"?random="+Math.random();
+		var tag = obj.tag;
+		var filterrule = filter.rule;
+		var filterKeyBrand = filter.brand;
+		var showMore = Number(filter.showmore);
+		var morePart = showMorePart();
+		
+		var allCount = 0;
+		
+		var jqxhr = $.getJSON(url, function(data) {})
+		.error(function(data) { //alert("error");
+		})
+		.success(function(data) { 
+			times.push(new Date().getTime());
+			var items = [];
+			info = data.products;
+			// filter
+			if ( filterrule == 'On'){
+				var temp = info;
+				var newtemp = [];
+				var endtemp = [];
+				$.each(temp,function(val,key){
+					//回调函数有两个参数,第一个是元素索引,第二个为当前值
+					if (key.brand ==filterKeyBrand){
+						//alert('temp数组中 ,索引 : '+val+'	 对应的brand为: '+key.brand);
+						newtempm = temp.slice(val,val+1);
+						endtemp=$.merge(endtemp,newtempm);
+					}
+				});
+				info = endtemp;
+			}
+			var retCnt = info.length;
+			$(".addmoreinfo").html("ALL:" + info.length + ",showMore:" + showMore +",showMorePart():"+showMorePart());
+			if ( retCnt >= firstShow || showMore == "1"){
+				//retCnt = firstShow ;
+				for(var i = 0;retCnt >0 && i < retCnt; i++)
+					{ 
+						//alert(info[i].price + "," + i );
+						items.push('<li id="product_' + i + '" class="p-'+  info[i].price  +' d-'+ info[i].discount +' b-'+ info[i].brand +'">' + info[i].html + '</li>');
+						allCount = i;
+					};
+				$("#showmoreproduct").val(Number(showMorePart())+1);
+			}else {
+				var allCnt = retCnt;
+				retCnt = Number(firstShow * Number(showMore)) - 1 ;
+				if ( retCnt >= allCnt ) {   retCnt = allCnt; }
+				
+			}
+	
+			//jQuery("#loading").fadeOut('slow');
+			tebtimes = setTimeout(function(){
+				$('<ul/>', {
+					'class': 'list',
+					html: items.join('')
+					}).replaceAll('.productlist .list');
+			},100);
+			
+		})
+		.complete(function() { 
+			times.push(new Date().getTime());
+		});
+		jqxhr.complete(function(){ 
+			times.push(new Date().getTime());
+			var testinfo ="time used:"+(times[2] - times[0]) / 1000 + "sec. \n"  + "all Count:"+ (allCount +1 ) +"items."; 
+			$(".info").html(testinfo);
+	
+		});
+	}//function showProductJson end
+	
+	function sortProduct(obj,filter) { 
+	
+		var url = obj.url;//+"?random="+Math.random();
+		var tag = obj.tag;
+		var morePart = showMorePart();
+		var showMore = Number(filter.showmore);
+		var allCount = 0;
+		
 		if (tag != ''){
 			switch (tag) 
 			   { 
@@ -182,21 +244,8 @@ function showProductJson(obj,filter) {
 				 //info = $(info);
 			} 
 		}
-		// filter
-		if ( filterrule == 'On'){
-			var temp = info;
-			var newtemp = [];
-			var endtemp = [];
-			$.each(temp,function(val,key){
-				//回调函数有两个参数,第一个是元素索引,第二个为当前值
-				if (key.brand ==filterKeyBrand){
-					//alert('temp数组中 ,索引 : '+val+'	 对应的brand为: '+key.brand);
-					newtempm = temp.slice(val,val+1);
-					endtemp=$.merge(endtemp,newtempm);
-				}
-			});
-			info = endtemp;
-		}
+		times.push(new Date().getTime());
+		var items = [];
 		var retCnt = info.length;
 		$(".addmoreinfo").html("ALL:" + info.length + ",showMore:" + showMore +",showMorePart():"+showMorePart());
 		if ( retCnt >= firstShow || showMore == "1"){
@@ -207,14 +256,13 @@ function showProductJson(obj,filter) {
 					items.push('<li id="product_' + i + '" class="p-'+  info[i].price  +' d-'+ info[i].discount +' b-'+ info[i].brand +'">' + info[i].html + '</li>');
 					allCount = i;
 				};
+			// temp
 			$("#showmoreproduct").val(Number(showMorePart())+1);
 		}else {
 			var allCnt = retCnt;
 			retCnt = Number(firstShow * Number(showMore)) - 1 ;
 			if ( retCnt >= allCnt ) {   retCnt = allCnt; }
-			
 		}
-
 		//jQuery("#loading").fadeOut('slow');
 		tebtimes = setTimeout(function(){
 			$('<ul/>', {
@@ -223,30 +271,30 @@ function showProductJson(obj,filter) {
 				}).replaceAll('.productlist .list');
 		},100);
 		
-	})
-	.complete(function() { 
-		times.push(new Date().getTime());
-	});
-	jqxhr.complete(function(){ 
 		times.push(new Date().getTime());
 		var testinfo ="time used:"+(times[2] - times[0]) / 1000 + "sec. \n"  + "all Count:"+ (allCount +1 ) +"items."; 
 		$(".info").html(testinfo);
+	}//function sortProduct end
 
-	});
-}	
 	showProductJson({url:'json.php',tag:'all'},{showmore:'1'});
 	
 	$(".sortbar a").click(function(){
 		showLoading();
 		var tags = $(this).attr("title");
-		showProductJson({url:'json.php',tag:tags},{rule:'Off',showmore:'1'});
+		sortProduct({tag:tags},{showmore:'1'});
+		//showProductJson({url:'json.php',tag:tags},{rule:'Off',showmore:'1'});
 		return false;
 	});
 	$(".filter a").click(function(){
 		showLoading();
 		var rule = $(this).attr("title");
 		var id= $(this).attr("id");
-		showProductJson({url:'json.php'},{brand:rule,rule:'On',showmore:'1'});
+		if (rule == "off"){
+				showProductJson({url:'json.php'},{brand:rule,rule:'off',showmore:'1'});
+			}else{
+				showProductJson({url:'json.php'},{brand:rule,rule:'On',showmore:'1'});
+			}
+		
 		return false;
 	});
 	
@@ -255,7 +303,7 @@ function showProductJson(obj,filter) {
 		top=$(window).scrollTop();//得到滚动条当前值，赋给top变量
 		$(".scrollinfo").html("top:" + top + "<br /> height:" + hght);
 	  });	
-setInterval("cando();",2000);//每隔2秒钟调用一次cando函数来判断当前滚动条位置。
+	setInterval("cando();",2000);//每隔2秒钟调用一次cando函数来判断当前滚动条位置。
 
 
 </script>
